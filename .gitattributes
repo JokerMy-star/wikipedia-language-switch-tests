@@ -1,0 +1,3 @@
+# Keep line endings LF in the working copy on every OS, so .env created from
+# .env.example and the sources copied into the Docker image stay consistent.
+* text=auto eol=lf

@@ -1,0 +1,12 @@
+services:
+  tests:
+    build: .
+    image: wikipedia-language-switch-tests
+    # Credentials are passed in at run time and never become part of the image.
+    # Compose fails with a clear message when .env has not been created yet.
+    env_file: .env
+    volumes:
+      # The HTML report and the failure artifacts are written straight onto the
+      # host, so they outlive the container.
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
